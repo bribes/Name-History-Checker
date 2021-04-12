@@ -19,15 +19,17 @@ function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 var username = htmlEntities(decodeURI(getQueryVariable('username')));
+var error_message = "No user has that username!"; //The Error Message
+var API_URL = "https://www.faav.tk/v1/namemc/namehistory?username="; //The API URL
 console.log(username);
-$.getJSON('https://www.faav.tk/v1/namemc/namehistory?username=' + username, function(data123) {
-    console.log(data123);
+$.getJSON(API_URL + username, function(data123) {
+    console.log(data123.error);
     var input = document.getElementById('username');
-    input.value = username;
+input.value = username;
     if (data123.error !== "This user doesn't exist") {
         buildTable(data123);
     }else {
-document.getElementById('myTable').innerHTML = '<td>No user has that username!</td>';
+document.getElementById('myTable').innerHTML = '<td>'+error_message+'</td>';
 }
 
 //Name History Section
@@ -49,7 +51,7 @@ document.getElementById('myTable').innerHTML = '<td>No user has that username!</
                 table.innerHTML += row1;
             }
             var row2 = `<tr>
-	  <td>${data[i].order}. <a href="?username=${data[i].username}">${data[i].username}</a><\/td>
+	  <td>${data[i].order}. <a href="">${data[i].username}</a><\/td>
 	                     <\/tr>`
             table.innerHTML += row2
         }
