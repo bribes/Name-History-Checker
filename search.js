@@ -44,12 +44,12 @@ document.getElementById('myTable').innerHTML = '<td>No user has that username!</
             table.innerHTML += row;
             for (var i = 1; i < data.length - 1; i++) {
                 var row1 = `<tr>
-	  <td>${data[i].order}. <a href="">${data[i].username}<\/a><\/td><td style="float:right;">${format(data[i].timestamp)}<\/td>
+	  <td>${data[i].order}. <a href="?username=${data[i].username}">${data[i].username}<\/a><\/td><td style="float:right;">${format(data[i].timestamp)}<\/td>
 	                     <\/tr>`
                 table.innerHTML += row1;
             }
             var row2 = `<tr>
-	  <td>${data[i].order}. <a href="">${data[i].username}</a><\/td>
+	  <td>${data[i].order}. <a href="?username=${data[i].username}">${data[i].username}</a><\/td>
 	                     <\/tr>`
             table.innerHTML += row2
         }
