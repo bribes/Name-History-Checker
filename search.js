@@ -27,7 +27,7 @@ $.getJSON('https://www.faav.tk/v1/namemc/namehistory?username=' + username, func
     if (data123.error !== "This user doesn't exist") {
         buildTable(data123);
     }else {
-document.getElementById('myTable').innerHTML = '<td>No user has that name!</td>';
+document.getElementById('myTable').innerHTML = '<td>No user has that username!</td>';
 }
 
 //Name History Section
