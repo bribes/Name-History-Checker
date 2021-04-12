@@ -34,16 +34,20 @@
 	  
 	   function buildTable(data){
 	       var table = document.getElementById('myTable')
-	       for (var i = 0; i < data.length - 1; i++) {
-	  var row = `<tr>
-	  <td>${data[i].order} <a href="https://viewmc.com/lookup?name=${data[i].username}">${data[i].username}<\/a><\/td><td style="float:right;">${format(data[i].timestamp)}<\/td>
+	        var row = `<tr>
+	  <td>Name History:<\/td>
 	                     <\/tr>`
 	  table.innerHTML += row;
-	       }
+	       for (var i = 0; i < data.length - 1; i++) {
 	  var row1 = `<tr>
+	  <td>${data[i].order} <a href="https://viewmc.com/lookup?name=${data[i].username}">${data[i].username}<\/a><\/td><td style="float:right;">${format(data[i].timestamp)}<\/td>
+	                     <\/tr>`
+	  table.innerHTML += row1;
+	       }
+	  var row2 = `<tr>
 	  <td>${data[i].order} <a href="https://viewmc.com/lookup?name=${data[i].username}">${data[data.length - 1].username}</a><\/td>
 	                     <\/tr>`
-	  table.innerHTML += row1
+	  table.innerHTML += row2
 	   }
 	  }
 	  )
