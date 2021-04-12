@@ -32,7 +32,7 @@ $.getJSON('https://www.faav.tk/v1/namemc/namehistory?username=' + username, func
         buildTable(data123);
     }
 
-
+//Name History Section
     function buildTable(data) {
         var table = document.getElementById('myTable')
         if (format(data[0].timestamp) == "12/31/1969, 7:00:00 PM") {
