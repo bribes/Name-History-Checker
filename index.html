@@ -50,7 +50,9 @@
 	  console.log(username);
 	   $.getJSON('https://www.faav.tk/v1/namemc/namehistory?username='+username, function(data123) {
 	  console.log(data123);
-	  if (username != "") {
+	  var input = document.getElementById('username');
+     if (username != "") {
+           input.value = username;
 	   buildTable(data123);
 	  }
 	  
