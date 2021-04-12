@@ -33,21 +33,21 @@ $.getJSON('https://www.faav.tk/v1/namemc/namehistory?username=' + username, func
         var table = document.getElementById('myTable')
         if (format(data[0].timestamp) == "12/31/1969, 7:00:00 PM") {
             var row = `<tr class="bold">
-	  <td>${data.length}. <a href="https://viewmc.com/lookup?name=${data[0].username}">${data[0].username}</a><\/td>`
+	  <td>${data.length}. <a href="">${data[0].username}</a><\/td>`
             table.innerHTML += row;
         } else {
             var row = `<tr class="bold">
-	  <td>${data.length}. <a href="https://viewmc.com/lookup?name=${data[0].username}">${data[0].username}</a><\/td><td style="float:right;">${format(data[0].timestamp)}<\/td>
+	  <td>${data.length}. <a href="">${data[0].username}</a><\/td><td style="float:right;">${format(data[0].timestamp)}<\/td>
 	                     <\/tr>`
             table.innerHTML += row;
             for (var i = 1; i < data.length - 1; i++) {
                 var row1 = `<tr>
-	  <td>${data[i].order}. <a href="https://viewmc.com/lookup?name=${data[i].username}">${data[i].username}<\/a><\/td><td style="float:right;">${format(data[i].timestamp)}<\/td>
+	  <td>${data[i].order}. <a href="">${data[i].username}<\/a><\/td><td style="float:right;">${format(data[i].timestamp)}<\/td>
 	                     <\/tr>`
                 table.innerHTML += row1;
             }
             var row2 = `<tr>
-	  <td>${data[i].order}. <a href="https://viewmc.com/lookup?name=${data[i].username}">${data[i].username}</a><\/td>
+	  <td>${data[i].order}. <a href="">${data[i].username}</a><\/td>
 	                     <\/tr>`
             table.innerHTML += row2
         }
