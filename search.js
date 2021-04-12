@@ -25,14 +25,16 @@ console.log(username);
 $.getJSON(API_URL + username, function(data123) {
     console.log(data123.error);
     var input = document.getElementById('username');
-input.value = username;
+    input.value = username;
     if (data123.error !== "This user doesn't exist") {
-        buildTable(data123);
-    }else {
-document.getElementById('myTable').innerHTML = '<td>'+error_message+'</td>';
-}
+        if (username == '') {
+            buildTable(data123);
+        } else {
+            document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>';
+        }
+    }
 
-//Name History Section
+    //Name History Section
     function buildTable(data) {
         var table = document.getElementById('myTable')
         if (format(data[0].timestamp) == "12/31/1969, 7:00:00 PM") {
