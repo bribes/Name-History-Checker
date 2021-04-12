@@ -1,4 +1,4 @@
-# Basic Minecraft Name History
+# Basic Name History Checker
 
 Feel free to use this for your website. No credit needed!
 
