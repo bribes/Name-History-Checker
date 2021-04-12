@@ -23,10 +23,12 @@ console.log(username);
 $.getJSON('https://www.faav.tk/v1/namemc/namehistory?username=' + username, function(data123) {
     console.log(data123);
     var input = document.getElementById('username');
-    if (username != "") {
-        input.value = username;
+    input.value = username;
+    if (data123.error !== "This user doesn't exist") {
         buildTable(data123);
-    }
+    }else {
+document.getElementById('myTable').innerHTML = '<td>No user has that name!</td>';
+}
 
 //Name History Section
     function buildTable(data) {
