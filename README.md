@@ -1,1 +1,1 @@
-# Minecraft-Name-History
+# Basic Minecraft Name History
