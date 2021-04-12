@@ -11,12 +11,8 @@ function getQueryVariable(variable) {
 }
 
 function format(timestamp) {
-
-    // Create a date object from the timestamp
     var date = new Date(timestamp);
-
     return date.toLocaleString();
-
 }
 
 function htmlEntities(str) {
