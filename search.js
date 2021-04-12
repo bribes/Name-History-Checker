@@ -26,11 +26,11 @@ $.getJSON(API_URL + username, function(data123) {
     console.log(data123.error);
     var input = document.getElementById('username');
     input.value = username;
-    if (data123.error !== "This user doesn't exist") {
-        if (username == '') {
-            buildTable(data123);
-        } else {
+    if (username !== '') {
+        if (data123.error == "This user doesn't exist") {
             document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>';
+        } else {
+            buildTable(data123);
         }
     }
 
