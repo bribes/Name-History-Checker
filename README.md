@@ -1,6 +1,6 @@
 # Name History Checker
 
-This is a Basic Name History Checker. Feel free to use this for your website. No credit needed!
+This is a Basic Name History Checker. Feel free to use this for your website, no credit needed!
 
 https://withdrew.github.io/Basic-Name-History-Checker/
 
