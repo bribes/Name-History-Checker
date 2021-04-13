@@ -1,6 +1,6 @@
 # Name History Checker
 
-This is a Simple Name History Checker, made with just CSS, JS, and HTML. Feel free to use this for your website, no credit needed! (A Star would be great though.)
+This is a simple Name History Checker, made with just CSS, JS, and HTML. Feel free to use this for your website, no credit needed! (A Star would be great though.)
 
 https://withdrew.github.io/Basic-Name-History-Checker/
 
