@@ -1,3 +1,4 @@
+//Gets a query
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split("&");
@@ -9,26 +10,26 @@ function getQueryVariable(variable) {
         return "";
     }
 }
-
+//Formats the dates
 function format(timestamp) {
     var date = new Date(timestamp);
     return date.toLocaleString();
 }
-
+//HTML Entities
 function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
-var username = htmlEntities(decodeURI(getQueryVariable('username')));
+var username = htmlEntities(decodeURI(getQueryVariable('username'))); //Username query
 var error_message = "No minecraft account currently has that username!"; //The Error Message
 var API_URL = "https://www.faav.tk/v1/namemc/namehistory?username="; //The API URL
 $.getJSON(API_URL + username, function(data123) {
-    var input = document.getElementById('username');
-    input.value = username;
-    if (username !== '') {
-        if (data123.error == "This user doesn't exist") {
-            document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>';
+    var input = document.getElementById('username'); //The input
+    input.value = username; //Sets the input value to the username
+    if (username !== '') { //Checks if the username isn't blank
+        if (data123.error == "This user doesn't exist") { //Checks if the username is on a account
+            document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>'; //Makes the error message
         } else {
-            buildTable(data123);
+            buildTable(data123); //Makes the Name History
         }
     }
 
