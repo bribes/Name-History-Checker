@@ -36,7 +36,7 @@ $.getJSON(API_URL + username, function(data123) {
     //Name History Section
     function buildTable(data) {
         var table = document.getElementById('myTable')
-        if (format(data[0].timestamp) == "12/31/1969, 7:00:00 PM") {
+        if (format(data[0].timestamp) == "12/31/1969, 7:00:00 PM" || format(data[0].timestamp) == "1/1/1970, 1:00:00 AM" ) {
             var row = `<tr class="bold">
 	  <td>${data.length}. <a href="?username=${data[0].username}">${data[0].username}</a><\/td>`
             table.innerHTML += row;
