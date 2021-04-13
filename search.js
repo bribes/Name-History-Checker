@@ -21,9 +21,7 @@ function htmlEntities(str) {
 var username = htmlEntities(decodeURI(getQueryVariable('username')));
 var error_message = "No minecraft account currently has that username!"; //The Error Message
 var API_URL = "https://www.faav.tk/v1/namemc/namehistory?username="; //The API URL
-console.log(username);
 $.getJSON(API_URL + username, function(data123) {
-    console.log(data123.error);
     var input = document.getElementById('username');
     input.value = username;
     if (username !== '') {
