@@ -19,7 +19,7 @@ function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 var username = htmlEntities(decodeURI(getQueryVariable('username')));
-var error_message = "No user has that username!"; //The Error Message
+var error_message = "No account currently has that username!"; //The Error Message
 var API_URL = "https://www.faav.tk/v1/namemc/namehistory?username="; //The API URL
 console.log(username);
 $.getJSON(API_URL + username, function(data123) {
