@@ -19,7 +19,7 @@ function format(timestamp) {
 function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
-var username = htmlEntities(decodeURI(getQueryVariable('username'))); //Username query
+var username = htmlEntities(decodeURIComponent(getQueryVariable('username'))); //Username query
 var error_message = "No minecraft account currently has that username!"; //The Error Message
 var API_URL = "https://www.faav.tk/v1/namemc/namehistory?username="; //The API URL
 $.getJSON(API_URL + username, function(data123) {
