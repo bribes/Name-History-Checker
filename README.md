@@ -1,4 +1,4 @@
-# Name History Checker (NO JQUERY)
+# Name History Checker
 
 This is a simple Name History Checker, made with pure CSS, JS, and HTML. Feel free to use this for your website, no credit needed! (A Star would be greatly appreciated though.) P.S. This uses a unofficial NameMC API made by me.
 
