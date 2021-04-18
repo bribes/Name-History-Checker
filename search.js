@@ -25,7 +25,7 @@ var error_message = "No minecraft account currently has that username!"; //The E
 var API_URL = "https://www.faav.tk/v1/namemc/namehistory?username="; //The API URL
 var input = document.getElementById('username'); //The input
 input.value = decodeURIComponent(getQueryVariable('username')); //Sets the input value to the username
-fetch(API_URL + username).then(res => res.json()).then((data) => {
+fetch(API_URL + username).then(response => response.json()).then((data) => {
 	if (username !== '') { //Checks if the username isn't blank
 		if (data.error == "This user doesn't exist") { //Checks if the username is on a account
 			document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>'; //Makes the error message
