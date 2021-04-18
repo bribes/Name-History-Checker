@@ -42,7 +42,7 @@ fetch(API_URL + username).then(response => response.json()).then((data) => {
 			table.innerHTML += row;
 		} else {
 			var row = `<tr class="bold">
-	  <td>` + data.length + `. <a href="?username=` + data[0].username + `">` + data[0].username + `</a><\/td><td style="float:right;">` + formatTime(data[0].timestamp) + `<\/td>
+	  <td>` + data.length + `. <a href="?username=` + data[0].username + `">` + data[0].username + `</a><\/td><td class="right">` + formatTime(data[0].timestamp) + `<\/td>
 	                     <\/tr>`;
 			table.innerHTML += row;
 			for (var i = 1; i < data.length - 1; i++) {
