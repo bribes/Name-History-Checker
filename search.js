@@ -47,7 +47,7 @@ fetch(API_URL + username).then(response => response.json()).then((data) => {
 			table.innerHTML += row;
 			for (var i = 1; i < data.length - 1; i++) {
 				var row1 = `<tr>
-	  <td>` + data[i].order + `. <a href="?username=` + data[i].username + `">` + data[i].username + `<\/a><\/td><td style="float:right;">` + formatTime(data[i].timestamp) + `<\/td>
+	  <td>` + data[i].order + `. <a href="?username=` + data[i].username + `">` + data[i].username + `<\/a><\/td><td class="right">` + formatTime(data[i].timestamp) + `<\/td>
 	                     <\/tr>`;
 				table.innerHTML += row1;
 			}
