@@ -1,4 +1,4 @@
-![](https://user-images.githubusercontent.com/52789876/115288135-14cd7780-a11f-11eb-813a-506992e45bec.png)
+![](https://user-images.githubusercontent.com/52789876/115288372-5b22d680-a11f-11eb-8213-2266cb69c01a.png)
 
 This is a simple Name History Checker, made with pure CSS, JS, and HTML. Feel free to use this for your website, no credit needed! (A Star would be greatly appreciated though.)
 
