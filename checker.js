@@ -50,7 +50,7 @@ fetch(API).then(response => response.json()).then((data) => {
 				table.innerHTML += row1;
 			}
 			var row2 = `<tr>
-	  <td>` + data[i].order + `. <a href="">` + data[i].username + `</a><\/td>
+	  <td>` + data[i].order + `. <a href="?username=` + data[i].username + `">` + data[i].username + `</a><\/td>
 	                     <\/tr>`;
 			table.innerHTML += row2;
 		}
