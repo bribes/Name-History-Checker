@@ -27,7 +27,6 @@ fetch(API).then(response => response.json()).then((data) => {
 	if (username !== '') { //Checks if the username isn't blank
 		if (data.error === true) { //Checks if there is a error
 			document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>'; //Makes the error message
-			console.clear();
 		} else {
 			buildTable(data.data.player.meta.name_history.reverse()); //Makes the Name History
 		}
