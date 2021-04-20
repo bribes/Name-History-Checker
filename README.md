@@ -3,6 +3,7 @@
 This is a simple Name History Checker, made with pure CSS, JS, and HTML. Feel free to use this for your website, no credit needed! (A Star would be greatly appreciated though.)
 
 API Used: https://playerdb.co/
+
 Also Kqzz API kool too
 
 https://withdrew.github.io/Name-History-Checker
