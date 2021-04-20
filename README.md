@@ -4,7 +4,7 @@ This is a simple Name History Checker, made with pure CSS, JS, and HTML. Feel fr
 
 API Used: https://playerdb.co/
 
-Also Kqzz API kool too
+Also lucky swede on top
 
 https://withdrew.github.io/Name-History-Checker
 
