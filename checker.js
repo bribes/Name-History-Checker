@@ -43,6 +43,7 @@ fetch(API).then(response => response.json()).then((data) => {
 				document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>'; //Makes the error message
 			}
 		} else {
+			document.getElementsByTagName('title')[0].innerText = data.data.player.username+' - Name History Checker';
 			document.getElementById('icon').href = data.data.player.avatar+'?overlay';
 			buildTable(data.data.player.meta.name_history.reverse()); //Makes the Name History
 		}
