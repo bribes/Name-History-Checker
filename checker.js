@@ -43,9 +43,9 @@ fetch(API).then(response => response.json()).then((data) => {
 				document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>'; //Makes the error message
 			}
 		} else {
+			buildTable(data.data.player.meta.name_history.reverse()); //Makes the Name History
 			document.getElementsByTagName('title')[0].innerText = data.data.player.username+' | Name History';
 			document.getElementById('icon').href = data.data.player.avatar+'?overlay';
-			buildTable(data.data.player.meta.name_history.reverse()); //Makes the Name History
 		}
 	}
 	//Name History Section
