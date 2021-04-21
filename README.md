@@ -14,6 +14,7 @@ CSS Used: https://purecss.io/
 
 Also lucky swede on top
   
-https://withdrew.github.io/Name-History-Checker
+Site: https://withdrew.github.io/Name-History-Checker
 
+Image:
 <img src="https://withdrew.github.io/Name-History-Checker/example.svg">
