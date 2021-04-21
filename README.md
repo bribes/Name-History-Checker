@@ -3,7 +3,7 @@
 </p>
 
 <p align=center>
-This is a simple Name History Checker for Minecraft, made with pure CSS, JS, and HTML. Feel free to use this for your website, no credit needed! (A Star would be greatly appreciated though.)
+This is a simple and open source Name History Checker for Minecraft, made with pure CSS, JS, and HTML. Feel free to use this for your website, no credit needed! (A Star would be greatly appreciated though.)
   </p>
   
   ---
