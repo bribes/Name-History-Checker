@@ -10,4 +10,4 @@ Also lucky swede on top
 
 https://withdrew.github.io/Name-History-Checker
 
-![](https://user-images.githubusercontent.com/52789876/114550151-e1c34980-9c2f-11eb-90cf-c38761ecd497.PNG)
+![](https://withdrew.github.io/Name-History-Checker/example.svg)
