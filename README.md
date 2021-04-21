@@ -4,7 +4,7 @@ This is a simple Name History Checker, made with pure CSS, JS, and HTML. Feel fr
 
 API Used: https://playerdb.co/
 
-CSS Used: https://purecss.io
+CSS Used: https://purecss.io/
 
 Also lucky swede on top
 
