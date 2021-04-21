@@ -8,13 +8,13 @@ This is a simple Name History Checker, made with pure CSS, JS, and HTML. Feel fr
   
   ---
 
+Site: https://withdrew.github.io/Name-History-Checker
+
 API Used: https://playerdb.co/
 
 CSS Used: https://purecss.io/
 
 Also lucky swede on top
-  
-Site: https://withdrew.github.io/Name-History-Checker
 
 Image:
 
