@@ -1,10 +1,10 @@
  let mode;
 	      mode = localStorage.getItem('mode');
 
-	      if (mode === 'light'){
-	         lightMode();
-	      }else{
+	      if (mode === 'dark'){
 	         darkMode();
+	      }else{
+	         lightMode();
 	      }
 	      function lightMode() {
 	      document.body.className = "lightmode-background";
