@@ -1,0 +1,47 @@
+button:focus, textarea:focus, select:focus {
+	outline: none;
+}
+.lightmode-background {
+	background: #fff;
+	color: #212529;
+	transition: background-color .25s ease-in-out;
+}
+.darkmode-background {
+	background: #1b151f;
+	color: #fff;
+	transition: background-color .25s ease-in-out;
+}
+.lightmode-button {
+	background: #1b151f;
+	color: white;
+	width: 3rem;
+	height: 3rem;
+	position: fixed;
+	border-radius: 50%;
+	right: 32px;
+	bottom: 32px;
+	left: unset;
+	cursor: pointer;
+	transition: all 0.5s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+}
+.darkmode-button {
+	background: white;
+	color: black;
+	width: 3rem;
+	height: 3rem;
+	position: fixed;
+	border-radius: 50%;
+	right: 32px;
+	bottom: 32px;
+	left: unset;
+	cursor: pointer;
+	transition: all 0.5s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+}
