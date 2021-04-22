@@ -8,7 +8,7 @@ button:focus, textarea:focus, select:focus {
 }
 .darkmode-background {
 	background: #1b151f;
-	color: #fff;
+	color: #dedad6;
 	transition: background-color .25s ease-in-out;
 }
 .lightmode-button {
