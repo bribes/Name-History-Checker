@@ -30,7 +30,7 @@ input.value = username; //Sets the input value to the username
 if (username !== '') { //Checks if the username isn't blank
   fetch(API).then(response => response.json()).then((data) => {
     if (data.error === true) { //Checks if there is a error
-      fetch("https://api.gapple.pw/blocked/" + username).then(response => response.json()).then((data123) => {
+      fetch("https://api.gapple.pw/blocked/" + username).then(response => response.json()).then((gapple) => {
         if (/^[a-zA-Z0-9_]{3,16}$/.test(username) == false) {
           if (/^.{3,}$/.test(username) == false) {
             document.getElementById('myTable').innerHTML = '<td>' + error_short + '</td>'; //Makes the error message
@@ -42,7 +42,7 @@ if (username !== '') { //Checks if the username isn't blank
             document.getElementById('myTable').innerHTML = '<td>' + error_invalid + '</td>'; //Makes the error message
           }
         } else {
-          if (data123.status == 'blocked') {
+          if (gapple.status == 'blocked') {
             document.getElementById('myTable').innerHTML = '<td>' + error_blocked + '</td>'; //Makes the error message
           } else {
             document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>'; //Makes the error message
