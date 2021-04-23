@@ -23,6 +23,7 @@ var error_invalid = "The name you entered has an invalid character!"; //The Erro
 var error_short = "The name you entered is too short!"; //The Error Message Short
 var error_long = "The name you entered is too long!"; //The Error Message Long
 var error_blocked = "The name you entered is blocked!"; //The Error Message Blocked
+var dropping = "The name you entered is dropping on "; //The Dropping Message
 var API_URL = "https://playerdb.co/api/player/minecraft/"; //The API URL
 var API = API_URL + username; //Full API URL (DONT EDIT)
 var input = document.getElementById('username'); //The input
@@ -45,7 +46,11 @@ if (username !== '') { //Checks if the username isn't blank
           if (gapple.status == 'blocked') {
             document.getElementById('myTable').innerHTML = '<td>' + error_blocked + '</td>'; //Makes the error message
           } else {
-            document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>'; //Makes the error message
+            if (gapple.status == 'soon') {
+              document.getElementById('myTable').innerHTML = '<td>' + dropping + formatTime(gapple.drop_time) + '.</td>'; //Makes the error message
+            } else {
+              document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>'; //Makes the error message
+            }
           }
 
         }
