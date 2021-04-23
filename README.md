@@ -11,7 +11,9 @@ This is a simple and open source Name History Checker for Minecraft, made with p
 Site: https://withdrew.github.io/Name-History-Checker
 
 APIs Used: 
+
 https://playerdb.co
+
 https://api.gapple.pw/blocked/
 
 CSS Used: https://purecss.io
