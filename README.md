@@ -14,7 +14,7 @@ Site: https://withdrew.github.io/Name-History-Checker
 
 APIs Used: 
 
-https://playerdb.co
+https://playerdb.co/
 
 https://api.gapple.pw/blocked/
 
