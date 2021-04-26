@@ -5,8 +5,8 @@ function getUsername() {
   var vars = query.split("&");
   for (var i = 0; i < vars.length; i++) {
     var pair = vars[i].split("=");
-    if (pair[0] == 'username') {
-      var username = pair[1].split('+').join('%20');
+    if (pair[0] == "username") {
+      var username = pair[1].split("+").join("%20");
       return username;
     }
     return "";
@@ -26,30 +26,30 @@ var error_blocked = "The name you entered is blocked!"; //The Error Message Bloc
 var dropping = "The name you entered is dropping on "; //The Dropping Message
 var API_URL = "https://playerdb.co/api/player/minecraft/"; //The API URL
 var API = API_URL + username; //Full API URL (DONT EDIT)
-var input = document.getElementById('username'); //The input
+var input = document.getElementById("username"); //The input
 input.value = username; //Sets the input value to the username
-if (username !== '') { //Checks if the username isn't blank
+if (username !== "") { //Checks if the username isn"t blank
   fetch(API).then(response => response.json()).then((data) => {
     if (data.error === true) { //Checks if there is a error
       fetch("https://api.gapple.pw/blocked/" + username).then(response => response.json()).then((gapple) => {
         if (/^[a-zA-Z0-9_]{3,16}$/.test(username) == false) {
           if (/^.{3,}$/.test(username) == false) {
-            document.getElementById('myTable').innerHTML = '<td>' + error_short + '</td>'; //Makes the error message
+            document.getElementById("myTable").innerHTML = "<td>" + error_short + "</td>"; //Makes the error message
           }
           if (/^.{0,16}$/.test(username) == false) {
-            document.getElementById('myTable').innerHTML = '<td>' + error_long + '</td>'; //Makes the error message
+            document.getElementById("myTable").innerHTML = "<td>" + error_long + "</td>"; //Makes the error message
           }
           if (/^[a-zA-Z0-9_]+$/.test(username) == false) {
-            document.getElementById('myTable').innerHTML = '<td>' + error_invalid + '</td>'; //Makes the error message
+            document.getElementById("myTable").innerHTML = "<td>" + error_invalid + "</td>"; //Makes the error message
           }
         } else {
-          if (gapple.status == 'blocked') {
-            document.getElementById('myTable').innerHTML = '<td>' + error_blocked + '</td>'; //Makes the error message
+          if (gapple.status == "blocked") {
+            document.getElementById("myTable").innerHTML = "<td>" + error_blocked + "</td>"; //Makes the error message
           } else {
-            if (gapple.status == 'soon') {
-              document.getElementById('myTable').innerHTML = '<td>' + dropping + formatTime(gapple.drop_time) + '.</td>'; //Makes the error message
+            if (gapple.status == "soon") {
+              document.getElementById("myTable").innerHTML = "<td>" + dropping + formatTime(gapple.drop_time) + ".</td>"; //Makes the error message
             } else {
-              document.getElementById('myTable').innerHTML = '<td>' + error_message + '</td>'; //Makes the error message
+              document.getElementById("myTable").innerHTML = "<td>" + error_message + "</td>"; //Makes the error message
             }
           }
 
@@ -57,12 +57,12 @@ if (username !== '') { //Checks if the username isn't blank
       });
     } else {
       buildTable(data.data.player.meta.name_history.reverse()); //Makes the Name History
-      document.getElementsByTagName('title')[0].innerText = data.data.player.username + ' | Name History';
-      document.getElementById('icon').href = data.data.player.avatar + '?overlay';
+      document.getElementsByTagName("title")[0].innerText = data.data.player.username + " | Name History";
+      document.getElementById("icon").href = data.data.player.avatar + "?overlay";
     }
     //Name History Section
     function buildTable(data) {
-      var table = document.getElementById('myTable');
+      var table = document.getElementById("myTable");
       if (data.length === 1) {
         var row3 = `<tr class="bold">
 	  <td>` + data.length + `. <a href="?username=` + data[0].name + `">` + data[0].name + `</a><\/td>`;
