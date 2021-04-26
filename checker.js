@@ -31,6 +31,7 @@ hours = hours ? hours : 12; // the hour '0' should be '12'
 minutes = minutes < 10 ? '0' +minutes : minutes; var strTime=month + "/" + day + "/" + year + " at " + hours + ':' + minutes + ':' + seconds + ' ' + ampm; 
 return strTime; 
 }
+//Variables
 var username = decodeURIComponent(getUsername()); //Username query
 var error_message = "No minecraft account currently has that username!"; //The Error Message
 var error_invalid = "The name you entered has invalid characters!"; //The Error Message Invalid
@@ -43,8 +44,8 @@ var API = API_URL + username; //Full API URL (DONT EDIT)
 var input = document.getElementById("username"); //The input
 input.value = username; //Sets the input value to the username
 if (username !== "") { //Checks if the username isn"t blank
-  fetch(API).then(response => response.json()).then((data) => {
-    if (data.error === true) { //Checks if there is a error
+  fetch(API).then(response => response.json()).then((main) => {
+    if (main.error === true) { //Checks if there is a error
       fetch("https://api.gapple.pw/blocked/" + username).then(response => response.json()).then((gapple) => {
         if (/^[a-zA-Z0-9_]{3,16}$/.test(username) == false) {
           if (/^.{3,}$/.test(username) == false) {
@@ -70,9 +71,9 @@ if (username !== "") { //Checks if the username isn"t blank
         }
       });
     } else {
-      var icon = "https://minotar.net/helm/" + data.data.player.username + "/1000.png"; // The Favicon
-      var title = data.data.player.username + " | Name History"; // The Title
-      buildTable(data.data.player.meta.name_history.reverse()); //Makes the Name History
+      var icon = "https://minotar.net/helm/" + main.data.player.username + "/1000.png"; // The Favicon
+      var title = main.data.player.username + " | Name History"; // The Title
+      buildTable(main.data.player.meta.name_history.reverse()); //Makes the Name History
       document.getElementsByTagName("title")[0].innerText = title; //Adds the Title
       document.getElementById("icon").href = icon; //Adds the Favicon
     }
