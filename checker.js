@@ -17,6 +17,20 @@ function formatTime(timestamp) {
   var date = new Date(timestamp);
   return date.toLocaleString();
 }
+function formatDrop(date) {
+var date = new Date(date);
+var month = date.getMonth() + 1;
+var day = date.getDate();
+var year = date.getFullYear();
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds();
+var ampm = hours >= 12 ? 'PM' : 'AM';
+hours = hours % 12;
+hours = hours ? hours : 12; // the hour '0' should be '12'
+minutes = minutes < 10 ? '0' +minutes : minutes; var strTime=month + "/" + day + "/" + year + " at " + hours + ':' + minutes + ':' + seconds + ' ' + ampm; 
+return strTime; 
+}
 var username = decodeURIComponent(getUsername()); //Username query
 var error_message = "No minecraft account currently has that username!"; //The Error Message
 var error_invalid = "The name you entered has invalid characters!"; //The Error Message Invalid
@@ -47,7 +61,7 @@ if (username !== "") { //Checks if the username isn"t blank
             document.getElementById("myTable").innerHTML = "<td>" + error_blocked + "</td>"; //Makes the error message
           } else {
             if (gapple.status == "soon") {
-              document.getElementById("myTable").innerHTML = "<td>" + dropping + formatTime(gapple.drop_time) + ".</td>"; //Makes the error message
+              document.getElementById("myTable").innerHTML = "<td>" + dropping + formatDrop(gapple.drop_time) + ".</td>"; //Makes the error message
             } else {
               document.getElementById("myTable").innerHTML = "<td>" + error_message + "</td>"; //Makes the error message
             }
