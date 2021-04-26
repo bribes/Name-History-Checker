@@ -1,4 +1,4 @@
-let mode;
+var mode;
 mode = localStorage.getItem('mode');
 if (mode === 'dark') {
 	darkMode();
