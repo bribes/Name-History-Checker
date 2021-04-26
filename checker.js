@@ -58,7 +58,7 @@ if (username !== "") { //Checks if the username isn"t blank
     } else {
       buildTable(data.data.player.meta.name_history.reverse()); //Makes the Name History
       document.getElementsByTagName("title")[0].innerText = data.data.player.username + " | Name History";
-      document.getElementById("icon").href = data.data.player.avatar + "?overlay";
+      document.getElementById("icon").href = "https://minotar.net/helm/" + data.data.player.username + "/1000.png";
     }
     //Name History Section
     function buildTable(data) {
