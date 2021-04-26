@@ -19,7 +19,7 @@ function formatTime(timestamp) {
 }
 var username = decodeURIComponent(getUsername()); //Username query
 var error_message = "No minecraft account currently has that username!"; //The Error Message
-var error_invalid = "The name you entered has an invalid character!"; //The Error Message Invalid
+var error_invalid = "The name you entered has invalid characters!"; //The Error Message Invalid
 var error_short = "The name you entered is too short!"; //The Error Message Short
 var error_long = "The name you entered is too long!"; //The Error Message Long
 var error_blocked = "The name you entered is blocked!"; //The Error Message Blocked
