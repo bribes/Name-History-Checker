@@ -1,35 +1,37 @@
 /*jshint esversion: 6 */
 //Gets a query
 function getUsername() {
-  var query = window.location.search.substring(1);
-  var vars = query.split("&");
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split("=");
-    if (pair[0] == "username") {
-      var username = pair[1].split("+").join("%20");
-      return username;
-    }
-    return "";
-  }
+	var query = window.location.search.substring(1);
+	var vars = query.split("&");
+	for (var i = 0; i < vars.length; i++) {
+		var pair = vars[i].split("=");
+		if (pair[0] == "username") {
+			var username = pair[1].split("+").join("%20");
+			return username;
+		}
+		return "";
+	}
 }
-//Formats the dates
+//Formats timestamps
 function formatTime(timestamp) {
-  var date = new Date(timestamp);
-  return date.toLocaleString();
+	var date = new Date(timestamp);
+	return date.toLocaleString();
 }
-function formatDrop(date) {
-var date = new Date(date);
-var month = date.getMonth() + 1;
-var day = date.getDate();
-var year = date.getFullYear();
-var hours = date.getHours();
-var minutes = date.getMinutes();
-var seconds = date.getSeconds();
-var ampm = hours >= 12 ? 'PM' : 'AM';
-hours = hours % 12;
-hours = hours ? hours : 12; // the hour '0' should be '12'
-minutes = minutes < 10 ? '0' +minutes : minutes; var strTime=month + "/" + day + "/" + year + " at " + hours + ':' + minutes + ':' + seconds + ' ' + ampm; 
-return strTime; 
+//Formats the dropping time
+function formatDrop(raw_date) {
+	var date = new Date(date);
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+	var year = date.getFullYear();
+	var hours = date.getHours();
+	var minutes = date.getMinutes();
+	var seconds = date.getSeconds();
+	var ampm = hours >= 12 ? "PM" : "AM";
+	hours = hours % 12;
+	hours = hours ? hours : 12;
+	minutes = minutes < 10 ? "0" + minutes : minutes;
+	var strTime = month + "/" + day + "/" + year + " at " + hours + ":" + minutes + ":" + seconds + " " + ampm;
+	return strTime;
 }
 //Variables
 var username = decodeURIComponent(getUsername()); //Username query
@@ -42,64 +44,67 @@ var dropping = "The name you entered is dropping on "; //The Dropping Message
 var API_URL = "https://playerdb.co/api/player/minecraft/"; //The API URL
 var API = API_URL + username; //Full API URL (DONT EDIT)
 var input = document.getElementById("username"); //The input
+
 input.value = username; //Sets the input value to the username
 if (username !== "") { //Checks if the username isn"t blank
-  fetch(API).then(response => response.json()).then((main) => {
-    if (main.error === true) { //Checks if there is a error
-      fetch("https://api.gapple.pw/blocked/" + username).then(response => response.json()).then((gapple) => {
-        if (/^[a-zA-Z0-9_]{3,16}$/.test(username) == false) {
-          if (/^.{3,}$/.test(username) == false) {
-            document.getElementById("myTable").innerHTML = "<td>" + error_short + "</td>"; //Makes the error message
-          }
-          if (/^.{0,16}$/.test(username) == false) {
-            document.getElementById("myTable").innerHTML = "<td>" + error_long + "</td>"; //Makes the error message
-          }
-          if (/^[a-zA-Z0-9_]+$/.test(username) == false) {
-            document.getElementById("myTable").innerHTML = "<td>" + error_invalid + "</td>"; //Makes the error message
-          }
-        } else {
-          if (gapple.status == "blocked") {
-            document.getElementById("myTable").innerHTML = "<td>" + error_blocked + "</td>"; //Makes the error message
-          } else {
-            if (gapple.status == "soon") {
-              document.getElementById("myTable").innerHTML = "<td>" + dropping + formatDrop(gapple.drop_time) + ".</td>"; //Makes the error message
-            } else {
-              document.getElementById("myTable").innerHTML = "<td>" + error_message + "</td>"; //Makes the error message
-            }
-          }
+	fetch(API).then(response => response.json()).then((main) => {
+		if (main.error === true) { //Checks if there is a error
+			fetch("https://api.gapple.pw/blocked/" + username).then(response => response.json()).then((gapple) => {
+				if (/^[a-zA-Z0-9_]{3,16}$/.test(username) == false) {
+					if (/^.{3,}$/.test(username) == false) {
+						document.getElementById("myTable").innerHTML = "<td>" + error_short + "</td>"; //Makes the error message
+					}
+					if (/^.{0,16}$/.test(username) == false) {
+						document.getElementById("myTable").innerHTML = "<td>" + error_long + "</td>"; //Makes the error message
+					}
+					if (/^[a-zA-Z0-9_]+$/.test(username) == false) {
+						document.getElementById("myTable").innerHTML = "<td>" + error_invalid + "</td>"; //Makes the error message
+					}
+				} else {
+					if (gapple.status == "blocked") {
+						document.getElementById("myTable").innerHTML = "<td>" + error_blocked + "</td>"; //Makes the error message
+					} else {
+						if (gapple.status == "soon") {
+							document.getElementById("myTable").innerHTML = "<td>" + dropping + formatDrop(gapple.drop_time) + ".</td>"; //Makes the error message
+						} else {
+							document.getElementById("myTable").innerHTML = "<td>" + error_message + "</td>"; //Makes the error message
+						}
+					}
 
-        }
-      });
-    } else {
-      var icon = "https://minotar.net/helm/" + main.data.player.username + "/1000.png"; // The Favicon
-      var title = main.data.player.username + " | Name History"; // The Title
-      buildTable(main.data.player.meta.name_history.reverse()); //Makes the Name History
-      document.getElementsByTagName("title")[0].innerText = title; //Adds the Title
-      document.getElementById("icon").href = icon; //Adds the Favicon
-    }
-    //Name History Section
-    function buildTable(data) {
-      var table = document.getElementById("myTable");
-      if (data.length === 1) {
-        var row3 = `<tr class="bold">
+				}
+			});
+		} else {
+			window.username = main.data.player.username;
+			window.name_history = main.data.player.meta.name_history.reverse();
+			var icon = "https://minotar.net/helm/" + window.username + "/1000.png"; // The Favicon
+			var title = window.username + " | Name History"; // The Title
+			buildTable(window.name_history); //Makes the Name History
+			document.getElementsByTagName("title")[0].innerText = title; //Adds the Title
+			document.getElementById("icon").href = icon; //Adds the Favicon
+		}
+		//Name History Section
+		function buildTable(data) {
+			var table = document.getElementById("myTable");
+			if (data.length === 1) {
+				var row3 = `<tr class="bold">
 	  <td>` + data.length + `. <a href="?username=` + data[0].name + `">` + data[0].name + `</a><\/td>`;
-        table.innerHTML += row3;
-      } else {
-        var row = `<tr class="bold">
+				table.innerHTML += row3;
+			} else {
+				var row = `<tr class="bold">
 	  <td>` + data.length + `. <a href="?username=` + data[0].name + `">` + data[0].name + `</a><\/td><td class="right">` + formatTime(data[0].changedToAt) + `<\/td>
 	                     <\/tr>`;
-        table.innerHTML += row;
-        for (var i = 1; i < data.length - 1; i++) {
-          var row1 = `<tr>
+				table.innerHTML += row;
+				for (var i = 1; i < data.length - 1; i++) {
+					var row1 = `<tr>
 	  <td>` + (data.length - i) + `. <a href="?username=` + data[i].name + `">` + data[i].name + `<\/a><\/td><td class="right">` + formatTime(data[i].changedToAt) + `<\/td>
 	                     <\/tr>`;
-          table.innerHTML += row1;
-        }
-        var row2 = `<tr>
+					table.innerHTML += row1;
+				}
+				var row2 = `<tr>
 	  <td>` + (data.length - i) + `. <a href="?username=` + data[i].name + `">` + data[i].name + `</a><\/td>
 	                     <\/tr>`;
-        table.innerHTML += row2;
-      }
-    }
-  });
+				table.innerHTML += row2;
+			}
+		}
+	});
 }
