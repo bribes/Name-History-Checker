@@ -56,9 +56,11 @@ if (username !== "") { //Checks if the username isn"t blank
         }
       });
     } else {
+      var icon = "https://minotar.net/helm/" + data.data.player.username + "/1000.png"; // The Favicon
+      var title = data.data.player.username + " | Name History"; // The Title
       buildTable(data.data.player.meta.name_history.reverse()); //Makes the Name History
-      document.getElementsByTagName("title")[0].innerText = data.data.player.username + " | Name History";
-      document.getElementById("icon").href = "https://minotar.net/helm/" + data.data.player.username + "/1000.png";
+      document.getElementsByTagName("title")[0].innerText = title; //Adds the Title
+      document.getElementById("icon").href = icon; //Adds the Favicon
     }
     //Name History Section
     function buildTable(data) {
