@@ -14,12 +14,12 @@ function getUsername() {
 }
 //Formats timestamps
 function formatTime(timestamp) {
-	var date = new Date(timestamp);
-	return date.toLocaleString();
+	var date = new Date(timestamp).toLocaleString();
+	return date;
 }
 //Formats the dropping time
 function formatDrop(raw_date) {
-	var date = new Date(date);
+	var date = new Date(raw_date);
 	var month = date.getMonth() + 1;
 	var day = date.getDate();
 	var year = date.getFullYear();
