@@ -72,7 +72,7 @@ if (username !== "") { //Checks if the username isn"t blank
     } else {
       window.username = main.data.player.username;
       window.name_history = main.data.player.meta.name_history.reverse();
-      var icon = "https://minotar.net/helm/" + window.username + "/1000.png"; // The Favicon
+      var icon = main.data.player.avatar + "?overlay"; // The Favicon
       var title = window.username + " | Name History"; // The Title
       buildTable(window.name_history); //Makes the Name History
       document.getElementsByTagName("title")[0].innerText = title; //Adds the Title
