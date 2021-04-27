@@ -49,7 +49,7 @@ var username = decodeURIComponent(getUsername()); //Username query
 var API_URL = "https://playerdb.co/api/player/minecraft/"; //The API URL
 var API = API_URL + username; //Full API URL (DONT EDIT)
 var input = document.getElementById("username"); //The input
-var error_blocked = "The name you entered is blocked!"; //The Error Message Blocked
+var blocked = "The name you entered is blocked!"; //The Error Message Blocked
 var dropping = "The name you entered is dropping on "; //The Dropping Message
 
 input.value = username; //Sets the input value to the username
@@ -61,7 +61,7 @@ if (username !== "") { //Checks if the username isn"t blank
         table.innerHTML = "<tr><td>" + errorMessage(username) + "</td></tr>";
         if (errorMessage(username) == "No minecraft account currently has that username!") {
           if (gapple.status == "blocked") {
-            document.getElementById("myTable").innerHTML = "<td>" + error_blocked + "</td>"; //Makes the error message
+            document.getElementById("myTable").innerHTML = "<td>" + blocked + "</td>"; //Makes the error message
           } else {
             if (gapple.status == "soon") {
               document.getElementById("myTable").innerHTML = "<td>" + dropping + formatDrop(gapple.drop_time) + ".</td>"; //Makes the error message
