@@ -75,7 +75,7 @@ if (username !== "") { //Checks if the username isn"t blank
       var icon = "https://api.ashcon.app/mojang/v2/avatar/" + window.username; // The Favicon
       var title = window.username + " | Name History"; // The Title
       buildTable(window.name_history); //Makes the Name History
-      document.getElementsByTagName("title")[0].innerText = title; //Adds the Title
+      document.title = title; //Adds the Title
       document.getElementById("icon").href = icon; //Adds the Favicon
     }
     //Name History Section
