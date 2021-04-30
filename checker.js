@@ -56,7 +56,7 @@ input.value = username; //Sets the input value to the username
 if (username !== "") { //Checks if the username isn"t blank
   fetch(API).then(response => response.json()).then((main) => {
     if (main.error === true) { //Checks if there is a error
-      fetch("https://api.gapple.pw/blocked/${username}").then(response => response.json()).then((gapple) => {
+      fetch(`https://api.gapple.pw/blocked/${username}`).then(response => response.json()).then((gapple) => {
         var table = document.getElementById("myTable");
         table.innerHTML = "<tr><td>" + errorMessage(username) + "</td></tr>";
         if (errorMessage(username) == "No minecraft account currently has that username!") {
