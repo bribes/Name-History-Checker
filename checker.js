@@ -83,7 +83,7 @@ if (username !== "") { //Checks if the username isn"t blank
       var table = document.getElementById("myTable");
       if (data.length === 1) {
         var row3 = `<tr class="bold">
-	  <td>` + data.length + `. <a href="?username=` + data[0].name + `">` + data[0].name + `</a><\/td>`;
+	  <td>${data.length}. <a href="?username=${data[0].name}">${data[0].name}</a><\/td>`;
         table.innerHTML += row3;
       } else {
         var row = `<tr class="bold">
