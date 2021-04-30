@@ -30,7 +30,7 @@ function formatDrop(raw_date) {
   hours = hours % 12;
   hours = hours ? hours : 12;
   minutes = minutes < 10 ? "0" + minutes : minutes;
-  var strTime = month + "/" + day + "/" + year + " at " + hours + ":" + minutes + ":" + seconds + " " + ampm;
+  var strTime = `${month}/${day}/${year} at ${hours}:${minutes}:${seconds} ${ampm}`;
   return strTime;
 }
 //Makes the Error Messages
