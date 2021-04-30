@@ -87,17 +87,17 @@ if (username !== "") { //Checks if the username isn"t blank
         table.innerHTML += row3;
       } else {
         var row = `<tr class="bold">
-	  <td>` + data.length + `. <a href="?username=` + data[0].name + `">` + data[0].name + `</a><\/td><td class="right">` + formatTime(data[0].changedToAt) + `<\/td>
+	  <td>${data.length}. <a href="?username=${data[0].name}">${data[0].name}</a><\/td><td class="right">${formatTime(data[0].changedToAt)}<\/td>
 	                     <\/tr>`;
         table.innerHTML += row;
         for (var i = 1; i < data.length - 1; i++) {
           var row1 = `<tr>
-	  <td>` + (data.length - i) + `. <a href="?username=` + data[i].name + `">` + data[i].name + `<\/a><\/td><td class="right">` + formatTime(data[i].changedToAt) + `<\/td>
+	  <td>${(data.length - i)}. <a href="?username=${data[i].name}">${data[i].name}<\/a><\/td><td class="right">${formatTime(data[i].changedToAt)}<\/td>
 	                     <\/tr>`;
           table.innerHTML += row1;
         }
         var row2 = `<tr>
-	  <td>` + (data.length - i) + `. <a href="?username=` + data[i].name + `">` + data[i].name + `</a><\/td>
+	  <td>${(data.length - i)}. <a href="?username=${data[i].name}">${data[i].name}</a><\/td>
 	                     <\/tr>`;
         table.innerHTML += row2;
       }
