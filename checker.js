@@ -56,15 +56,15 @@ input.value = username; //Sets the input value to the username
 if (username !== "") { //Checks if the username isn"t blank
   fetch(API).then(response => response.json()).then((main) => {
     if (main.error === true) { //Checks if there is a error
-      fetch("https://api.gapple.pw/blocked/" + username).then(response => response.json()).then((gapple) => {
+      fetch("https://api.gapple.pw/blocked/${username}").then(response => response.json()).then((gapple) => {
         var table = document.getElementById("myTable");
         table.innerHTML = "<tr><td>" + errorMessage(username) + "</td></tr>";
         if (errorMessage(username) == "No minecraft account currently has that username!") {
           if (gapple.status == "blocked") {
-            document.getElementById("myTable").innerHTML = "<td>" + blocked + "</td>"; //Makes the error message
+            document.getElementById("myTable").innerHTML = `<td>${blocked}</td>`; //Makes the error message
           } else {
             if (gapple.status == "soon") {
-              document.getElementById("myTable").innerHTML = "<td>" + dropping + formatDrop(gapple.drop_time) + ".</td>"; //Makes the error message
+              document.getElementById("myTable").innerHTML = `<td>${dropping}${formatDrop(gapple.drop_time)}.</td>`; //Makes the error message
             }
           }
         }
@@ -72,8 +72,8 @@ if (username !== "") { //Checks if the username isn"t blank
     } else {
       window.username = main.data.player.username;
       window.name_history = main.data.player.meta.name_history.reverse();
-      var icon = "https://api.ashcon.app/mojang/v2/avatar/" + window.username; // The Favicon
-      var title = window.username + " | Name History"; // The Title
+      var icon = `https://api.ashcon.app/mojang/v2/avatar/${window.username}`; // The Favicon
+      var title = `${window.username} | Name History`; // The Title
       buildTable(window.name_history); //Makes the Name History
       document.title = title; //Adds the Title
       document.getElementById("icon").href = icon; //Adds the Favicon
