@@ -68,7 +68,6 @@ function errorMessage(username) {
         table.innerHTML += row2;
       }
     }
-}
 //Variables
 var username = decodeURIComponent(getUsername()); //Username query
 var API_URL = "https://playerdb.co/api/player/minecraft/"; //The API URL
@@ -99,4 +98,5 @@ if (username !== "") { //Checks if the username isn"t blank
       document.title = title; //Adds the Title
       document.getElementById("icon").href = icon; //Adds the Favicon
     }
+}
 lookup(username)
