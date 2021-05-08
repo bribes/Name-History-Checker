@@ -44,6 +44,31 @@ function errorMessage(username) {
   if (/^[a-zA-Z0-9_]+$/.test(username) == false) return error_invalid;
   return error_message;
 }
+//Name History Section
+    function buildTable(data) {
+      var table = document.getElementById("myTable");
+      if (data.length === 1) {
+        var row3 = `<tr class="bold">
+	  <td>${data.length}. <a href="?username=${data[0].name}">${data[0].name}</a><\/td>`;
+        table.innerHTML += row3;
+      } else {
+        var row = `<tr class="bold">
+	  <td>${data.length}. <a href="?username=${data[0].name}">${data[0].name}</a><\/td><td class="right">${formatTime(data[0].changedToAt)}<\/td>
+	                     <\/tr>`;
+        table.innerHTML += row;
+        for (var i = 1; i < data.length - 1; i++) {
+          var row1 = `<tr>
+	  <td>${(data.length - i)}. <a href="?username=${data[i].name}">${data[i].name}<\/a><\/td><td class="right">${formatTime(data[i].changedToAt)}<\/td>
+	                     <\/tr>`;
+          table.innerHTML += row1;
+        }
+        var row2 = `<tr>
+	  <td>${(data.length - i)}. <a href="?username=${data[i].name}">${data[i].name}</a><\/td>
+	                     <\/tr>`;
+        table.innerHTML += row2;
+      }
+    }
+}
 //Variables
 var username = decodeURIComponent(getUsername()); //Username query
 var API_URL = "https://playerdb.co/api/player/minecraft/"; //The API URL
@@ -74,30 +99,4 @@ if (username !== "") { //Checks if the username isn"t blank
       document.title = title; //Adds the Title
       document.getElementById("icon").href = icon; //Adds the Favicon
     }
-}
-    //Name History Section
-    function buildTable(data) {
-      var table = document.getElementById("myTable");
-      if (data.length === 1) {
-        var row3 = `<tr class="bold">
-	  <td>${data.length}. <a href="?username=${data[0].name}">${data[0].name}</a><\/td>`;
-        table.innerHTML += row3;
-      } else {
-        var row = `<tr class="bold">
-	  <td>${data.length}. <a href="?username=${data[0].name}">${data[0].name}</a><\/td><td class="right">${formatTime(data[0].changedToAt)}<\/td>
-	                     <\/tr>`;
-        table.innerHTML += row;
-        for (var i = 1; i < data.length - 1; i++) {
-          var row1 = `<tr>
-	  <td>${(data.length - i)}. <a href="?username=${data[i].name}">${data[i].name}<\/a><\/td><td class="right">${formatTime(data[i].changedToAt)}<\/td>
-	                     <\/tr>`;
-          table.innerHTML += row1;
-        }
-        var row2 = `<tr>
-	  <td>${(data.length - i)}. <a href="?username=${data[i].name}">${data[i].name}</a><\/td>
-	                     <\/tr>`;
-        table.innerHTML += row2;
-      }
-    }
-}
 lookup(username)
