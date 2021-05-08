@@ -12,11 +12,7 @@ Site: https://withdrew.github.io/Name-History-Checker
 
   ---
 
-APIs Used: 
-
-https://playerdb.co/
-
-https://api.gapple.pw/blocked/
+Package used: https://github.com/withdrew/FaavJS
 
   ---
 
