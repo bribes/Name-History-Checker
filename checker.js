@@ -100,3 +100,4 @@ if (username !== "") { //Checks if the username isn"t blank
       }
     }
 }
+lookup(username)
