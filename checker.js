@@ -88,18 +88,21 @@ function code() {
       var table = document.getElementById("myTable");
       table.innerHTML = "<tr><td>" + errorMessage(username) + "</td></tr>";
     }
-        }
-        if (player.status == "blocked") {
-          document.getElementById("myTable").innerHTML = `<td>${blocked}</td>`; //Makes the error message
-        } else {
-          if (player.status == "soon") {
-            document.getElementById("myTable").innerHTML = `<td>${dropping}${formatDrop(player.droptime)}.</td>`; //Makes the error message
-          } else {}
+        
       var icon = `https://api.ashcon.app/mojang/v2/avatar/${player.username}`; // The Favicon
       var title = `${player.username} | Name History`; // The Title
       buildTable(player.name_history); //Makes the Name History
       document.title = title; //Adds the Title
       document.getElementById("icon").href = icon; //Adds the Favicon
-}}
+    }
   }}
+if (errorMessage(username) == "No minecraft account currently has that username!") {
+        if (player.status == "blocked") {
+          document.getElementById("myTable").innerHTML = `<td>${blocked}</td>`; //Makes the error message
+        } else {
+          if (player.status == "soon") {
+            document.getElementById("myTable").innerHTML = `<td>${dropping}${formatDrop(player.droptime)}.</td>`; //Makes the error message
+          }
+        }}
+	}
 lookup(username);
