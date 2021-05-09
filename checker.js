@@ -103,6 +103,6 @@ if (errorMessage(username) == "No minecraft account currently has that username!
       document.title = title; //Adds the Title
       document.getElementById("icon").href = icon; //Adds the Favicon
 }}
-  }
+  }}
     }}
 lookup(username);
