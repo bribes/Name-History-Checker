@@ -83,7 +83,7 @@ function code() {
       var table = document.getElementById("myTable");
       table.innerHTML = "<tr><td>" + errorMessage(username) + "</td></tr>";
     } else {
-	     if (errorMessage(username) == "No minecraft account currently has that username!") {
+if (errorMessage(username) == "No minecraft account currently has that username!") {
         if (player.status == "blocked") {
           document.getElementById("myTable").innerHTML = `<td>${blocked}</td>`; //Makes the error message
         } else {
@@ -91,7 +91,7 @@ function code() {
             document.getElementById("myTable").innerHTML = `<td>${dropping}${formatDrop(player.droptime)}.</td>`; //Makes the error message
           }
         }
-      } else {
+} else {
       var icon = `https://api.ashcon.app/mojang/v2/avatar/${player.username}`; // The Favicon
       var title = `${player.username} | Name History`; // The Title
       buildTable(player.name_history); //Makes the Name History
