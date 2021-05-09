@@ -49,21 +49,21 @@ function buildTable(data) {
   var table = document.getElementById("myTable");
   if (data.length === 1) {
     var row3 = `<tr class="bold">
-	  <td>${data.length}. <a href="?username=${data[0].name}">${data[0].name}</a><\/td>`;
+	  <td>${data.length}. <a href="?username=${data[0].name}">${data[0].username}</a><\/td>`;
     table.innerHTML += row3;
   } else {
     var row = `<tr class="bold">
-	  <td>${data.length}. <a href="?username=${data[0].name}">${data[0].name}</a><\/td><td class="right">${formatTime(data[0].changedToAt)}<\/td>
+	  <td>${data.length}. <a href="?username=${data[0].name}">${data[0].username}</a><\/td><td class="right">${formatTime(data[0].changed_at)}<\/td>
 	                     <\/tr>`;
     table.innerHTML += row;
     for (var i = 1; i < data.length - 1; i++) {
       var row1 = `<tr>
-	  <td>${(data.length - i)}. <a href="?username=${data[i].name}">${data[i].name}<\/a><\/td><td class="right">${formatTime(data[i].changedToAt)}<\/td>
+	  <td>${(data.length - i)}. <a href="?username=${data[i].name}">${data[i].username}<\/a><\/td><td class="right">${formatTime(data[i].changed_at)}<\/td>
 	                     <\/tr>`;
       table.innerHTML += row1;
     }
     var row2 = `<tr>
-	  <td>${(data.length - i)}. <a href="?username=${data[i].name}">${data[i].name}</a><\/td>
+	  <td>${(data.length - i)}. <a href="?username=${data[i].name}">${data[i].username}</a><\/td>
 	                     <\/tr>`;
     table.innerHTML += row2;
   }
@@ -87,7 +87,7 @@ function code() {
           document.getElementById("myTable").innerHTML = `<td>${blocked}</td>`; //Makes the error message
         } else {
           if (player.status == "soon") {
-            document.getElementById("myTable").innerHTML = `<td>${dropping}${formatDrop(player.drop_time)}.</td>`; //Makes the error message
+            document.getElementById("myTable").innerHTML = `<td>${dropping}${formatDrop(player.droptime)}.</td>`; //Makes the error message
           }
         }
       }
