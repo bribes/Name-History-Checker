@@ -83,6 +83,11 @@ function code() {
       var table = document.getElementById("myTable");
       table.innerHTML = "<tr><td>" + errorMessage(username) + "</td></tr>";
     } else {
+  if (username !== "") { //Checks if the username isn"t blank
+    if (player.error === true) { //Checks if there is a error
+      var table = document.getElementById("myTable");
+      table.innerHTML = "<tr><td>" + errorMessage(username) + "</td></tr>";
+    } else {
 if (errorMessage(username) == "No minecraft account currently has that username!") {
         if (player.status == "blocked") {
           document.getElementById("myTable").innerHTML = `<td>${blocked}</td>`; //Makes the error message
@@ -97,8 +102,7 @@ if (errorMessage(username) == "No minecraft account currently has that username!
       buildTable(player.name_history); //Makes the Name History
       document.title = title; //Adds the Title
       document.getElementById("icon").href = icon; //Adds the Favicon
-    }
+}}
   }
-  }
-}
+    }}
 lookup(username);
