@@ -12,9 +12,10 @@ Site: https://withdrew.github.io/Name-History-Checker
 
   ---
 
-APIS USED:
+APIS:
 
 [Gapple](https://api.gapple.pw/])
+
 [PlayerDB](https://playerdb.co/)
 
   ---
