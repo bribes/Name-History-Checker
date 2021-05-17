@@ -12,27 +12,19 @@ function getUsername() {
     return "";
   }
 }
+
 //Formats timestamps
 function formatTime(timestamp) {
   var date = new Date(timestamp).toLocaleString();
   return date;
 }
+
 //Formats the dropping time
-function formatDrop(raw_date) {
-  var date = new Date(raw_date);
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  var year = date.getFullYear();
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var seconds = date.getSeconds();
-  var ampm = hours >= 12 ? "PM" : "AM";
-  hours = hours % 12;
-  hours = hours ? hours : 12;
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  var strTime = `${month}/${day}/${year} at ${hours}:${minutes}:${seconds} ${ampm}`;
-  return strTime;
+function formatDrop(timestamp) {
+  var date = new Date(timestamp).toLocaleString().replace(",", " at");
+  return date;
 }
+
 //Makes the Error Messages
 function errorMessage(username) {
   var error_message = "No minecraft account currently has that username!"; //The Error Message
@@ -44,6 +36,7 @@ function errorMessage(username) {
   if (/^[a-zA-Z0-9_]+$/.test(username) == false) return error_invalid;
   return error_message;
 }
+
 //Variables
 var username = decodeURIComponent(getUsername()); //Username query
 var API_URL = "https://playerdb.co/api/player/minecraft/"; //The API URL
