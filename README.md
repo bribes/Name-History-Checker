@@ -14,7 +14,7 @@ Site: https://withdrew.github.io/Name-History-Checker
 
 APIS:
 
-[Gapple](https://api.gapple.pw/])
+[Gapple](https://api.gapple.pw/)
 
 [PlayerDB](https://playerdb.co/)
 
